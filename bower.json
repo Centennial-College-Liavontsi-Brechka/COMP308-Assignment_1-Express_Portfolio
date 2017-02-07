@@ -1,0 +1,28 @@
+{
+  "name": "assignment-1-express-portfolio",
+  "description": "Personal portfolio in Express",
+  "main": "server.js",
+  "authors": [
+    "Liavontsi Brechka"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "NodeJS",
+    "ExpressJS",
+    "EJS"
+  ],
+  "homepage": "https://github.com/LeontiBrechko/Centennial-College",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/javascripts/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.7.0"
+  }
+}
