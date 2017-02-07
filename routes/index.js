@@ -3,35 +3,35 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    res.render('content/index', {
+    res.render('index', {
         title: 'Home'
     });
 });
 
 /* GET about page. */
 router.get('/about', (req, res, next) => {
-    res.render('content/about', {
+    res.render('index', {
         title: 'About',
     });
 });
 
 /* GET products page. */
 router.get('/projects', (req, res, next) => {
-    res.render('content/projects', {
+    res.render('index', {
         title: 'Projects'
     });
 });
 
 /* GET services page. */
 router.get('/services', (req, res, next) => {
-    res.render('content/services', {
+    res.render('index', {
         title: 'Services'
     });
 });
 
 /* GET contact page. */
 router.get('/contact', (req, res, next) => {
-    res.render('content/contact', {
+    res.render('index', {
         title: 'Contact'
     });
 });

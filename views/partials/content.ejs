@@ -1,0 +1,11 @@
+<% if (title === 'About') { %>
+<% include ../content/about.ejs %>
+<% } else if (title === 'Projects') { %>
+<% include ../content/projects.ejs %>
+<% } else if (title === 'Services') { %>
+<% include ../content/services.ejs %>
+<% } else if (title === 'Contact') { %>
+<% include ../content/contact.ejs %>
+<% } else { %>
+<% include ../content/home.ejs %>
+<% } %>
