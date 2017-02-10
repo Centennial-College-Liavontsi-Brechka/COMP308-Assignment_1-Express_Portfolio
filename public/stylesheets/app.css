@@ -11,3 +11,8 @@ a {
 .top-buffer {
     margin-top: 5px;
 }
+
+.subtitle {
+    color: gray;
+    font-weight: 300;
+}
