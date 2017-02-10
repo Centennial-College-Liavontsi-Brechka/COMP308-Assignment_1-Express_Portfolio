@@ -1,4 +1,7 @@
 let express = require('express');
+let nodemailer = require('nodemailer');
+let config = require('config');
+
 let router = express.Router();
 
 /* GET home page. */
@@ -32,7 +35,53 @@ router.get('/services', (req, res, next) => {
 /* GET contact page. */
 router.get('/contact', (req, res, next) => {
     res.render('index', {
-        title: 'Contact'
+        title: 'Contact',
+        messageSent: false
+    });
+});
+
+router.post('/contact', (req, res, next) => {
+    let mailOptions;
+    let smtpTransport;
+
+    // Setting up Nodemailer transport
+    smtpTransport = nodemailer.createTransport({
+        pool: true,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+            user: config.get("email"),
+            pass: config.get("password")
+        }
+    });
+
+    // Setting up mail options
+    mailOptions = {
+        from: `${req.body.first_name} ${req.body.last_name} <${req.body.email}>`,
+        to: config.get("email"),
+        subject: 'Portfolio contact me form',
+        text: `${req.body.message}\n Sent by: ${req.body.first_name} ${req.body.last_name} <${req.body.email}>`
+    };
+
+    // Sending email
+    smtpTransport.sendMail(mailOptions, (error, response) => {
+        // Email not sent case
+        if (error) {
+            res.render('index', {
+                title: 'Contact',
+                messageSent: true,
+                error: true
+            })
+        }
+        // Email sent
+        else {
+            res.render('index', {
+                title: 'Contact',
+                messageSent: true,
+                error: false
+            })
+        }
     });
 });
 
