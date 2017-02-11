@@ -1,3 +1,10 @@
+/**
+ * @author Liavontsi Brechka
+ * @studentID 300800345
+ * @date April 10, 2017
+ * @description Personal Portfolio websit component
+ */
+
 let express = require('express');
 let nodemailer = require('nodemailer');
 let config = require('config');
@@ -40,6 +47,8 @@ router.get('/contact', (req, res, next) => {
     });
 });
 
+
+// POST contact handler
 router.post('/contact', (req, res, next) => {
     let mailOptions;
     let smtpTransport;
